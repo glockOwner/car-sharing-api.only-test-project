@@ -1,0 +1,5 @@
+source .env
+./vendor/bin/sail up
+docker exec car-sharing-api-laravel.test-1 php artisan migrate
+docker exec -i car-sharing-api-mysql_db-1 mysql -usail -ppassword laravel < ./backup.sql
+
